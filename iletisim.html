@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ASOTO İletişim</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Title'a icon eklendi -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -33,6 +34,7 @@
         .navbar .logo img {
             width: 160px;
             height: 42px;
+            cursor: pointer; /* Logoya tıklanabilir görünüm ekledik */
         }
         .navbar nav {
             display: flex;
@@ -170,12 +172,18 @@
             padding: 10px 0;
             margin-top: auto;
         }
+        iframe {
+            border: 0;
+            border-radius: 10px;
+            width: 50%;
+            height: 400px; /* Harita yüksekliği sabitlendi */
+        }
     </style>
 </head>
 <body>
     <div class="navbar">
         <div class="logo">
-            <img src="images/asotologo1.png" alt="Logo">
+            <img src="images/asotologo1.png" alt="Logo" onclick="window.location.href='main.html'"> <!-- Logoya tıklanınca main.html açılır -->
         </div>
         <nav>
             <div class="dropdown">
@@ -218,8 +226,8 @@
                 E-posta: asoto@asotosivas.com
             </p>
         </div>
-        <!-- Google Haritalar güncellendi -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.073317579849!2d37.02321531538431!3d39.75038897944946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ1JzAxLjQiTiAzN8KwMDEnMjguOSJF!5e0!3m2!1sen!2str!4v1622549400000!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Google Haritalar güncellendi (Arkan Grup İstikbal Sivas Merkez) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.073317579849!2d37.04810251538431!3d39.75121470142389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ1JzAxLjQiTiAzN8KwMDMnMDEuMCJF!5e0!3m2!1sen!2str!4v1622549400000!5m2!1sen!2str" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="partners">
         <img src="images/oep.png" alt="Partner 1">
