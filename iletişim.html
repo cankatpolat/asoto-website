@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOTO Hakkında</title>
+    <title>ASOTO İletişim</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -126,7 +126,7 @@
             padding: 20px;
             max-width: 1200px;
             margin: auto;
-            margin-top: 146px;
+            margin-top: 126px; /* info-bar yüksekliği azaldığı için ayarlandı */
             display: flex;
             gap: 40px;
             align-items: center;
@@ -170,39 +170,6 @@
             padding: 10px 0;
             margin-top: auto;
         }
-        .cookie-banner {
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-align: center;
-            z-index: 1002;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .cookie-banner.hide {
-            opacity: 0;
-            transform: translateX(-50%) translateY(20px);
-            pointer-events: none;
-        }
-        .cookie-banner button {
-            background-color: #4b4b8e;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .cookie-banner button:hover {
-            background-color: #3a3a6d;
-        }
     </style>
 </head>
 <body>
@@ -215,7 +182,7 @@
                 <a href="#" id="kurumsal-link">Kurumsal</a>
                 <div class="dropdown-content">
                     <button>Banka Hesap Bilgileri</button>
-                    <button onclick="window.location.href='iletisim.html'">İletişim</button>
+                    <button>İletişim</button>
                 </div>
             </div>
             <a href="#">Fiyat Listesi</a>
@@ -242,13 +209,17 @@
         <!-- Bu kısım boş bırakıldı -->
     </div>
     <div class="container">
-        <img src="images/about-image.jpg" alt="ASOTO Hakkında Görsel">
         <div class="content">
-            <h1>ASOTO Hakkında</h1>
+            <h1>İletişim Bilgileri</h1>
             <p>
-                Kurucumuz Adnan SÜMBÜLOĞLU tarafından 1960 yılında başlayan aktif ticaret hayatımız, bu güne kadar devamlı gelişmeler içerisinde olmuştur. 40 yıllık perakendecilik hayatından sonra toptancılık yapmaya başlayan firmamız, değişimlere açık bir politika izleyerek, devamlı çeşit güncelleyerek bu zamanlara kadar gelmiştir. İlk olarak HEMA DİŞLİ bayisi olma onurunu yaşayan firmamız, şanzıman ve diferansiyel konularında branşlaşma kararı almıştır. Bir dönem serbest ithalat yolu ile ticaretini sürdüren firmamız onurlu bayiliklerine EATON TRUCK COMP.T.C. yedek parça bayiliğini ve MERİTOR AFTERMARKET EUROPE COMP.T.C. yedek parça bayiliklerini de dahil ederek ayrı bir mutluluk yaşamıştır. Bu mutluluklarımız ZF TÜRK SERVICES A.Ş. bayiliği ile kat kat katlanmıştır. Gerek bayiliklerimiz ile temin edilen, gerekse farklı firmalardan ithal ettiğimiz, yedek parçalara yerli imalatçılardan tedarikler ve özel imalatlara ayrı bir renk katarak piyasamıza hizmet vermeye devam ediyoruz.
+                Adres: Yeşilyurt Mahallesi, Sultanşehir Bulvarı No:88, Sivas<br>
+                Telefon: 0346 226 26 26 - 226 26 58<br>
+                Fax: 0346 226 16 03<br>
+                E-posta: asoto@asotosivas.com
             </p>
         </div>
+        <!-- Google Haritalar güncellendi -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.073317579849!2d37.02321531538431!3d39.75038897944946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ1JzAxLjQiTiAzN8KwMDEnMjguOSJF!5e0!3m2!1sen!2str!4v1622549400000!5m2!1sen!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="partners">
         <img src="images/oep.png" alt="Partner 1">
@@ -259,11 +230,6 @@
     <footer>
         &copy; 2024 - All Rights Reserved - Asoto Yedek Parça İth. İhr. San. Tic. Ltd. Şti.
     </footer>
-    <div class="cookie-banner">
-        By using this website, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
-        <button id="accept-cookie">Accept</button>
-        <button id="deny-cookie">Deny</button>
-    </div>
 
     <script>
         // Dropdown menüyü açıp kapatma işlemi (click için)
@@ -289,19 +255,6 @@
                     dropdown.classList.remove('active');
                 }
             });
-        });
-
-        // Cookie banner'ı kapatma işlemi
-        const cookieBanner = document.querySelector('.cookie-banner');
-        const acceptButton = document.getElementById('accept-cookie');
-        const denyButton = document.getElementById('deny-cookie');
-
-        acceptButton.addEventListener('click', () => {
-            cookieBanner.classList.add('hide');
-        });
-
-        denyButton.addEventListener('click', () => {
-            cookieBanner.classList.add('hide');
         });
     </script>
 </body>
