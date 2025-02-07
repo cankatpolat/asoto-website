@@ -1,0 +1,3 @@
+mainde icon yok
+harita büyütülecek
+konum hala yanlış
