@@ -145,11 +145,11 @@
         }
         .content h1 {
             margin-top: 0;
-            font-size: 24px;
+            font-size: 28px; /* Başlık boyutu büyütüldü */
             font-weight: bold;
         }
         .content p {
-            font-size: 14px;
+            font-size: 18px; /* Yazı boyutu büyütüldü */
             font-weight: normal;
             line-height: 1.6;
         }
@@ -175,8 +175,8 @@
         iframe {
             border: 0;
             border-radius: 10px;
-            width: 50%;
-            height: 400px; /* Harita yüksekliği sabitlendi */
+            width: 60%; /* Harita genişliği büyütüldü */
+            height: 500px; /* Harita yüksekliği büyütüldü */
         }
     </style>
 </head>
@@ -189,8 +189,8 @@
             <div class="dropdown">
                 <a href="#" id="kurumsal-link">Kurumsal</a>
                 <div class="dropdown-content">
-                    <button>Banka Hesap Bilgileri</button>
-                    <button>İletişim</button>
+                    <button onclick="window.location.href='banka.html'">Banka Hesap Bilgileri</button> <!-- banka.html açılır -->
+                    <button onclick="window.location.href='iletisim.html'">İletişim</button> <!-- iletisim.html açılır -->
                 </div>
             </div>
             <a href="#">Fiyat Listesi</a>
@@ -226,8 +226,8 @@
                 E-posta: asoto@asotosivas.com
             </p>
         </div>
-        <!-- Google Haritalar güncellendi (Arkan Grup İstikbal Sivas Merkez) -->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.073317579849!2d37.04810251538431!3d39.75121470142389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ1JzAxLjQiTiAzN8KwMDMnMDEuMCJF!5e0!3m2!1sen!2str!4v1622549400000!5m2!1sen!2str" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Google Haritalar güncellendi (39.7525, 37.049450990840825) -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.073317579849!2d37.04726631538431!3d39.7525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMznCsDQ1JzAxLjQiTiAzN8KwMDInNTguMSJF!5e0!3m2!1sen!2str!4v1622549400000!5m2!1sen!2str" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <div class="partners">
         <img src="images/oep.png" alt="Partner 1">

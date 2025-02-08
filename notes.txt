@@ -1,4 +1,7 @@
-mainde icon yok
-harita büyütülecek
-konum hala yanlış
-banka bilgileri yazılacak
+Main Page title Hakkında kısmı silinecek
+Main Page yazı güncellenecek
+Main Page görsel eklenecek
+
+Fotoğraflar yazısı çok yukarıda.
+lightbox'ta çarpı ve arrow dışında boşluğa basınca resim kapanacak.
+iletişim sayfasında fotoğraflar ve videolar butonu çalışmıyor.

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOTO Hakkında</title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Favicon eklendi -->
+    <title>ASOTO Videolar</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -34,7 +34,7 @@
         .navbar .logo img {
             width: 160px;
             height: 42px;
-            cursor: pointer; /* Logoya tıklanabilir olduğunu gösterir */
+            cursor: pointer;
         }
         .navbar nav {
             display: flex;
@@ -52,7 +52,6 @@
         .navbar nav a:hover {
             color: #4b4b8e;
         }
-        /* Açılır menü için stil */
         .dropdown {
             position: relative;
         }
@@ -128,30 +127,46 @@
             padding: 20px;
             max-width: 1200px;
             margin: auto;
-            margin-top: 146px;
+            margin-top: 126px;
             display: flex;
-            gap: 40px;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             flex: 1;
         }
-        .container img {
-            width: 50%;
-            height: auto;
+        .video-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 sütun */
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px; /* Ekran genişliğine göre ayarlandı */
+            margin: 0 auto; /* Yatayda ortala */
+            justify-content: center; /* İçerikleri yatayda ortala */
+        }
+        .video-wrapper {
+            width: 350.98px;
+            height: 197.42px;
+            border: 2px solid #2C2E8C;
             border-radius: 10px;
+            overflow: hidden;
+            background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .content {
-            width: 50%;
+        .video-wrapper:hover {
+            transform: scale(1.05); /* Hover'da büyütme efekti */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölge efekti */
         }
-        .content h1 {
-            margin-top: 0;
-            font-size: 24px;
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .page-title {
+            font-size: 28px;
             font-weight: bold;
-        }
-        .content p {
-            font-size: 14px;
-            font-weight: normal;
-            line-height: 1.6;
+            color: #2C2E8C;
+            text-align: center;
+            margin-bottom: 40px;
         }
         .partners {
             display: flex;
@@ -172,39 +187,6 @@
             padding: 10px 0;
             margin-top: auto;
         }
-        .cookie-banner {
-            position: fixed;
-            bottom: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 15px 20px;
-            border-radius: 8px;
-            text-align: center;
-            z-index: 1002;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        .cookie-banner.hide {
-            opacity: 0;
-            transform: translateX(-50%) translateY(20px);
-            pointer-events: none;
-        }
-        .cookie-banner button {
-            background-color: #4b4b8e;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .cookie-banner button:hover {
-            background-color: #3a3a6d;
-        }
     </style>
 </head>
 <body>
@@ -222,7 +204,7 @@
             </div>
             <a href="#">Fiyat Listesi</a>
             <a href="#">Kampanyalar</a>
-            <a href="videolar.html">Videolar</a> <!-- Videolar butonu -->
+            <a href="videolar.html">Videolar</a>
             <div class="dropdown">
                 <a href="#" id="kataloglar-link">Kataloglar</a>
                 <div class="dropdown-content">
@@ -235,7 +217,7 @@
                     <button onclick="window.open('catalogs/7.pdf', '_blank')">ZF 9S1115TD (NH1-C)</button>
                 </div>
             </div>
-            <a href="fotograflar.html">Fotograflar</a> <!-- Fotograflar butonu -->
+            <a href="fotograflar.html">Fotograflar</a> <!-- Fotograflar linki eklendi -->
             <a href="#">AS Haber</a>
         </nav>
         <button class="search-button">Ürün Ara</button>
@@ -244,12 +226,34 @@
         <!-- Bu kısım boş bırakıldı -->
     </div>
     <div class="container">
-        <img src="images/about-image.jpg" alt="ASOTO Hakkında Görsel">
-        <div class="content">
-            <h1>ASOTO Hakkında</h1>
-            <p>
-                Kurucumuz Adnan SÜMBÜLOĞLU tarafından 1960 yılında başlayan aktif ticaret hayatımız, bu güne kadar devamlı gelişmeler içerisinde olmuştur. 40 yıllık perakendecilik hayatından sonra toptancılık yapmaya başlayan firmamız, değişimlere açık bir politika izleyerek, devamlı çeşit güncelleyerek bu zamanlara kadar gelmiştir. İlk olarak HEMA DİŞLİ bayisi olma onurunu yaşayan firmamız, şanzıman ve diferansiyel konularında branşlaşma kararı almıştır. Bir dönem serbest ithalat yolu ile ticaretini sürdüren firmamız onurlu bayiliklerine EATON TRUCK COMP.T.C. yedek parça bayiliğini ve MERİTOR AFTERMARKET EUROPE COMP.T.C. yedek parça bayiliklerini de dahil ederek ayrı bir mutluluk yaşamıştır. Bu mutluluklarımız ZF TÜRK SERVICES A.Ş. bayiliği ile kat kat katlanmıştır. Gerek bayiliklerimiz ile temin edilen, gerekse farklı firmalardan ithal ettiğimiz, yedek parçalara yerli imalatçılardan tedarikler ve özel imalatlara ayrı bir renk katarak piyasamıza hizmet vermeye devam ediyoruz.
-            </p>
+        <div class="page-title">Videolar</div>
+        <div class="video-container">
+            <!-- Üstteki 4 Video -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/sUa4XGcUZ2g?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/LbGcuwiHzBQ?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/sJw9Q57MgFk?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/ltlrMRpl_08?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Alttaki 4 Video -->
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/zo-uFefXuO8?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/N90l-wDA-wU?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/bSh5tm2Hmn0?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-wrapper">
+                <!-- 8. video boş bırakıldı -->
+            </div>
         </div>
     </div>
     <div class="partners">
@@ -261,30 +265,23 @@
     <footer>
         &copy; 2024 - All Rights Reserved - Asoto Yedek Parça İth. İhr. San. Tic. Ltd. Şti.
     </footer>
-    <div class="cookie-banner">
-        By using this website, you agree to the storing of cookies on your device to enhance site navigation, analyze site usage, and assist in our marketing efforts.
-        <button id="accept-cookie">Accept</button>
-        <button id="deny-cookie">Deny</button>
-    </div>
 
     <script>
-        // Dropdown menüyü açıp kapatma işlemi (click için)
         const dropdowns = document.querySelectorAll('.dropdown');
 
         dropdowns.forEach(dropdown => {
             const link = dropdown.querySelector('a');
             link.addEventListener('click', (e) => {
-                e.preventDefault(); // Linkin varsayılan davranışını engelle
+                e.preventDefault();
                 dropdowns.forEach(d => {
                     if (d !== dropdown) {
-                        d.classList.remove('active'); // Diğer dropdown'ları kapat
+                        d.classList.remove('active');
                     }
                 });
                 dropdown.classList.toggle('active');
             });
         });
 
-        // Dropdown dışına tıklandığında kapatma
         document.addEventListener('click', (e) => {
             dropdowns.forEach(dropdown => {
                 if (!dropdown.contains(e.target)) {
@@ -293,18 +290,30 @@
             });
         });
 
-        // Cookie banner'ı kapatma işlemi
-        const cookieBanner = document.querySelector('.cookie-banner');
-        const acceptButton = document.getElementById('accept-cookie');
-        const denyButton = document.getElementById('deny-cookie');
+        // YouTube API için gerekli script
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        acceptButton.addEventListener('click', () => {
-            cookieBanner.classList.add('hide');
-        });
+        let players = [];
 
-        denyButton.addEventListener('click', () => {
-            cookieBanner.classList.add('hide');
-        });
+        function onYouTubeIframeAPIReady() {
+            const iframes = document.querySelectorAll('.video-wrapper iframe');
+            iframes.forEach((iframe, index) => {
+                const player = new YT.Player(iframe, {
+                    events: {
+                        'onReady': onPlayerReady
+                    }
+                });
+                players.push(player);
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Videolar otomatik başlamasın
+            event.target.stopVideo();
+        }
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOTO Banka Hesap Bilgileri</title>
+    <title>ASOTO Fotoğraflar</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
@@ -125,44 +125,42 @@
         }
         .container {
             padding: 20px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: auto;
             margin-top: 126px;
             display: flex;
-            gap: 40px;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             flex: 1;
-            flex-direction: column;
         }
-        .bank-info-container {
-            display: flex;
-            gap: 40px;
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px; /* Boşluklar daha da artırıldı */
             width: 100%;
+            margin: 0 auto;
             justify-content: center;
+            padding-bottom: 40px; /* Footer ile arasına boşluk ekledik */
         }
-        .bank-info {
-            background-color: white;
-            padding: 40px;
+        .image-wrapper {
+            width: 100%;
+            height: 220px;
+            border: 2px solid #2C2E8C;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 45%;
-            max-width: 600px;
-            transition: box-shadow 0.3s ease;
+            overflow: hidden;
+            background-color: #000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
-        .bank-info:hover {
+        .image-wrapper:hover {
+            transform: scale(1.05);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
-        .bank-info h2 {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2C2E8C;
-        }
-        .bank-info p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 10px 0;
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .page-title {
             font-size: 28px;
@@ -170,6 +168,46 @@
             color: #2C2E8C;
             text-align: center;
             margin-bottom: 40px;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+        .lightbox-nav.next {
+            right: 20px;
         }
         .partners {
             display: flex;
@@ -187,8 +225,9 @@
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
+            padding: 20px 0;
+            width: 100%;
+            margin-top: auto; /* Footer'ı en aşağıda tutar */
         }
     </style>
 </head>
@@ -220,7 +259,7 @@
                     <button onclick="window.open('catalogs/7.pdf', '_blank')">ZF 9S1115TD (NH1-C)</button>
                 </div>
             </div>
-            <a href="fotograflar.html">Fotograflar</a>
+            <a href="fotograflar.html">Fotoğraflar</a>
             <a href="#">AS Haber</a>
         </nav>
         <button class="search-button">Ürün Ara</button>
@@ -229,21 +268,104 @@
         <!-- Bu kısım boş bırakıldı -->
     </div>
     <div class="container">
-        <div class="page-title">Banka Hesap Bilgileri</div>
-        <div class="bank-info-container">
-            <div class="bank-info">
-                <h2>Türkiye İşbankası A.Ş.</h2>
-                <p><strong>Şube Adı:</strong> Kızılırmak Şb.-Sivas</p>
-                <p><strong>Şube Kodu:</strong> 5704</p>
-                <p><strong>Hesap No:</strong> 0093319</p>
-                <p><strong>IBAN No:</strong> TR67 0006 4000 0015 7040 0933 19</p>
+        <div class="page-title">Fotoğraflar</div>
+        <div class="image-container">
+            <!-- 32 adet resim kutusu -->
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 0)">
+                <img src="pictures/6.jpg" alt="Resim 1">
             </div>
-            <div class="bank-info">
-                <h2>Akbank T.A.Ş.</h2>
-                <p><strong>Şube Adı:</strong> Toptancılar Sitesi Şb.-Sivas</p>
-                <p><strong>Şube Kodu:</strong> 0711</p>
-                <p><strong>Hesap No:</strong> 0036679</p>
-                <p><strong>IBAN No:</strong> TR96 0004 6007 1188 8000 0366 79</p>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 1)">
+                <img src="pictures/6.jpg" alt="Resim 2">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 2)">
+                <img src="pictures/6.jpg" alt="Resim 3">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 3)">
+                <img src="pictures/6.jpg" alt="Resim 4">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 4)">
+                <img src="pictures/6.jpg" alt="Resim 5">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 5)">
+                <img src="pictures/6.jpg" alt="Resim 6">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 6)">
+                <img src="pictures/6.jpg" alt="Resim 7">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 7)">
+                <img src="pictures/6.jpg" alt="Resim 8">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 8)">
+                <img src="pictures/6.jpg" alt="Resim 9">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 9)">
+                <img src="pictures/6.jpg" alt="Resim 10">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 10)">
+                <img src="pictures/6.jpg" alt="Resim 11">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 11)">
+                <img src="pictures/6.jpg" alt="Resim 12">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 12)">
+                <img src="pictures/6.jpg" alt="Resim 13">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 13)">
+                <img src="pictures/6.jpg" alt="Resim 14">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 14)">
+                <img src="pictures/6.jpg" alt="Resim 15">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 15)">
+                <img src="pictures/6.jpg" alt="Resim 16">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 16)">
+                <img src="pictures/6.jpg" alt="Resim 17">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 17)">
+                <img src="pictures/6.jpg" alt="Resim 18">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 18)">
+                <img src="pictures/6.jpg" alt="Resim 19">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 19)">
+                <img src="pictures/6.jpg" alt="Resim 20">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 20)">
+                <img src="pictures/6.jpg" alt="Resim 21">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 21)">
+                <img src="pictures/6.jpg" alt="Resim 22">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 22)">
+                <img src="pictures/6.jpg" alt="Resim 23">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 23)">
+                <img src="pictures/6.jpg" alt="Resim 24">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 24)">
+                <img src="pictures/6.jpg" alt="Resim 25">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 25)">
+                <img src="pictures/6.jpg" alt="Resim 26">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 26)">
+                <img src="pictures/6.jpg" alt="Resim 27">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 27)">
+                <img src="pictures/6.jpg" alt="Resim 28">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 28)">
+                <img src="pictures/6.jpg" alt="Resim 29">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 29)">
+                <img src="pictures/6.jpg" alt="Resim 30">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 30)">
+                <img src="pictures/6.jpg" alt="Resim 31">
+            </div>
+            <div class="image-wrapper" onclick="openLightbox('pictures/6.jpg', 31)">
+                <img src="pictures/6.jpg" alt="Resim 32">
             </div>
         </div>
     </div>
@@ -256,6 +378,14 @@
     <footer>
         &copy; 2024 - All Rights Reserved - Asoto Yedek Parça İth. İhr. San. Tic. Ltd. Şti.
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-nav prev" onclick="changeImage(-1)">&#10094;</div>
+        <img id="lightbox-img" src="" alt="Lightbox Resim">
+        <div class="lightbox-nav next" onclick="changeImage(1)">&#10095;</div>
+    </div>
 
     <script>
         const dropdowns = document.querySelectorAll('.dropdown');
@@ -280,6 +410,3 @@
                 }
             });
         });
-    </script>
-</body>
-</html>
