@@ -127,7 +127,7 @@
             padding: 20px;
             max-width: 1400px;
             margin: auto;
-            margin-top: 126px;
+            margin-top: 160px; /* Başlık ve içerik daha aşağıya alındı */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -260,7 +260,7 @@
                 </div>
             </div>
             <a href="fotograflar.html">Fotoğraflar</a>
-            <a href="#">AS Haber</a>
+            <a href="ashaber.html">AS Haber</a> <!-- AS Haber butonu güncellendi -->
         </nav>
         <button class="search-button">Ürün Ara</button>
     </div>
@@ -410,3 +410,46 @@
                 }
             });
         });
+
+        // Lightbox fonksiyonları
+        let currentImageIndex = 0;
+        const images = Array.from(document.querySelectorAll('.image-wrapper img')).map(img => img.src);
+
+        function openLightbox(imageSrc, index) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imageSrc;
+            lightbox.style.display = 'flex';
+            currentImageIndex = index;
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+        }
+
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) {
+                currentImageIndex = images.length - 1;
+            } else if (currentImageIndex >= images.length) {
+                currentImageIndex = 0;
+            }
+            document.getElementById('lightbox-img').src = images[currentImageIndex];
+        }
+
+        // Klavye ile gezinme
+        document.addEventListener('keydown', (e) => {
+            if (document.getElementById('lightbox').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                } else if (e.key === 'Escape') {
+                    closeLightbox();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

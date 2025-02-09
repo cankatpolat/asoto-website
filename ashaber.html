@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASOTO Videolar</title>
+    <title>AS Haber</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <style>
@@ -134,51 +134,32 @@
             justify-content: center;
             flex: 1;
         }
-        .video-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 sütun */
-            gap: 20px;
-            width: 100%;
-            max-width: 1400px; /* Ekran genişliğine göre ayarlandı */
-            margin: 0 auto; /* Yatayda ortala */
-            justify-content: center; /* İçerikleri yatayda ortala */
-        }
-        .video-wrapper {
-            width: 350.98px;
-            height: 197.42px;
-            border: 2px solid #2C2E8C;
+        .pdf-viewer {
+            width: 80%;
+            height: 80vh;
+            border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
-            background-color: #000;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .video-wrapper:hover {
-            transform: scale(1.05); /* Hover'da büyütme efekti */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Gölge efekti */
-        }
-        .video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .page-title {
-            font-size: 28px;
-            font-weight: bold;
-            color: #2C2E8C;
+            position: relative;
             text-align: center;
-            margin-bottom: 40px;
         }
-        .partners {
+        .pdf-controls {
             display: flex;
             justify-content: center;
-            gap: 70px;
-            margin: 40px 0;
-            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .partners img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
+        .pdf-controls button {
+            background-color: #2C2E8C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .pdf-controls button:hover {
+            background-color: #3a3a6d;
         }
         footer {
             background-color: #333;
@@ -218,7 +199,7 @@
                 </div>
             </div>
             <a href="fotograflar.html">Fotograflar</a>
-            <a href="ashaber.html">AS Haber</a> <!-- AS Haber linki eklendi -->
+            <a href="ashaber.html">AS Haber</a>
         </nav>
         <button class="search-button">Ürün Ara</button>
     </div>
@@ -226,94 +207,117 @@
         <!-- Bu kısım boş bırakıldı -->
     </div>
     <div class="container">
-        <div class="page-title">Videolar</div>
-        <div class="video-container">
-            <!-- Üstteki 4 Video -->
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/sUa4XGcUZ2g?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/LbGcuwiHzBQ?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/sJw9Q57MgFk?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/ltlrMRpl_08?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <!-- Alttaki 4 Video -->
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/zo-uFefXuO8?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/N90l-wDA-wU?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/bSh5tm2Hmn0?enablejsapi=1" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-wrapper">
-                <!-- 8. video boş bırakıldı -->
-            </div>
+        <div class="pdf-viewer" id="pdf-viewer">
+            <!-- PDF görüntüleyici buraya eklenecek -->
         </div>
-    </div>
-    <div class="partners">
-        <img src="images/oep.png" alt="Partner 1">
-        <img src="images/meritor.png" alt="Partner 2">
-        <img src="images/hema.png" alt="Partner 3">
-        <img src="images/eaton.png" alt="Partner 4">
+        <div class="pdf-controls">
+            <button id="prev-page">Önceki Sayfa</button>
+            <button id="zoom-in">Yakınlaştır</button>
+            <button id="zoom-out">Uzaklaştır</button>
+            <span id="page-num">Sayfa 1</span>
+            <button id="next-page">Sonraki Sayfa</button>
+        </div>
     </div>
     <footer>
         &copy; 2024 - All Rights Reserved - Asoto Yedek Parça İth. İhr. San. Tic. Ltd. Şti.
     </footer>
 
+    <!-- PDF.js kütüphanesi -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
-        const dropdowns = document.querySelectorAll('.dropdown');
+        // PDF dosyasının yolu
+        const pdfUrl = 'https://cdn.anadolu.edu.tr/files/anadolu-cms/7gldkYw1/announcement/2024-2025-bahar-donemi-kayit-yenileme-islemleri-09af19a7371d0d7f.pdf';
 
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                dropdowns.forEach(d => {
-                    if (d !== dropdown) {
-                        d.classList.remove('active');
-                    }
-                });
-                dropdown.classList.toggle('active');
-            });
+        // PDF.js ayarları
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.0;
+
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const pdfViewer = document.getElementById('pdf-viewer');
+        pdfViewer.appendChild(canvas);
+
+        // PDF yükleme işlemi
+        pdfjsLib.getDocument(pdfUrl).promise.then(pdfDoc_ => {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page-num').textContent = `Sayfa ${pageNum} / ${pdfDoc.numPages}`;
+            renderPage(pageNum);
         });
 
-        document.addEventListener('click', (e) => {
-            dropdowns.forEach(dropdown => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
-                }
-            });
-        });
+        // Sayfa render etme işlemi
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(page => {
+                const viewport = page.getViewport({ scale: 1.0 });
+                const viewerWidth = pdfViewer.clientWidth;
+                const viewerHeight = pdfViewer.clientHeight;
 
-        // YouTube API için gerekli script
-        const tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        const firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                // Sayfanın genişliğine veya yüksekliğine göre ölçeklendirme
+                scale = Math.min(viewerWidth / viewport.width, viewerHeight / viewport.height);
+                const scaledViewport = page.getViewport({ scale });
 
-        let players = [];
+                canvas.height = scaledViewport.height;
+                canvas.width = scaledViewport.width;
 
-        function onYouTubeIframeAPIReady() {
-            const iframes = document.querySelectorAll('.video-wrapper iframe');
-            iframes.forEach((iframe, index) => {
-                const player = new YT.Player(iframe, {
-                    events: {
-                        'onReady': onPlayerReady
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: scaledViewport
+                };
+                page.render(renderContext).promise.then(() => {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
                     }
                 });
-                players.push(player);
             });
         }
 
-        function onPlayerReady(event) {
-            // Videolar otomatik başlamasın
-            event.target.stopVideo();
-        }
+        // Sayfa geçiş işlemleri
+        document.getElementById('prev-page').addEventListener('click', () => {
+            if (pageNum <= 1) return;
+            pageNum--;
+            document.getElementById('page-num').textContent = `Sayfa ${pageNum} / ${pdfDoc.numPages}`;
+            if (!pageRendering) {
+                renderPage(pageNum);
+            } else {
+                pageNumPending = pageNum;
+            }
+        });
+
+        document.getElementById('next-page').addEventListener('click', () => {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            document.getElementById('page-num').textContent = `Sayfa ${pageNum} / ${pdfDoc.numPages}`;
+            if (!pageRendering) {
+                renderPage(pageNum);
+            } else {
+                pageNumPending = pageNum;
+            }
+        });
+
+        // Yakınlaştırma işlemi
+        document.getElementById('zoom-in').addEventListener('click', () => {
+            scale += 0.1;
+            renderPage(pageNum);
+        });
+
+        // Uzaklaştırma işlemi
+        document.getElementById('zoom-out').addEventListener('click', () => {
+            if (scale <= 0.2) return;
+            scale -= 0.1;
+            renderPage(pageNum);
+        });
+
+        // Pencere boyutu değiştiğinde sayfayı yeniden ölçeklendir
+        window.addEventListener('resize', () => {
+            if (!pageRendering) {
+                renderPage(pageNum);
+            }
+        });
     </script>
 </body>
 </html>
