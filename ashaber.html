@@ -137,11 +137,15 @@
         .pdf-viewer {
             width: 80%;
             height: 80vh;
-            border: 1px solid #ddd;
+            border: 2px solid #2C2E8C; /* Çerçeve eklendi */
             border-radius: 10px;
-            overflow: hidden;
+            overflow: auto;
             position: relative;
             text-align: center;
+            background-color: #f0f0f0; /* Arka plan rengi */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .pdf-controls {
             display: flex;
@@ -226,7 +230,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
     <script>
         // PDF dosyasının yolu
-        const pdfUrl = 'https://cdn.anadolu.edu.tr/files/anadolu-cms/7gldkYw1/announcement/2024-2025-bahar-donemi-kayit-yenileme-islemleri-09af19a7371d0d7f.pdf';
+        const pdfUrl = 'catalogs/1.pdf';
 
         // PDF.js ayarları
         let pdfDoc = null,
@@ -235,10 +239,7 @@
             pageNumPending = null,
             scale = 1.0;
 
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
         const pdfViewer = document.getElementById('pdf-viewer');
-        pdfViewer.appendChild(canvas);
 
         // PDF yükleme işlemi
         pdfjsLib.getDocument(pdfUrl).promise.then(pdfDoc_ => {
@@ -259,9 +260,17 @@
                 scale = Math.min(viewerWidth / viewport.width, viewerHeight / viewport.height);
                 const scaledViewport = page.getViewport({ scale });
 
+                // Canvas oluştur
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                pdfViewer.innerHTML = ''; // Önceki içeriği temizle
+                pdfViewer.appendChild(canvas);
+
+                // Canvas boyutlarını ayarla
                 canvas.height = scaledViewport.height;
                 canvas.width = scaledViewport.width;
 
+                // Sayfayı render et
                 const renderContext = {
                     canvasContext: ctx,
                     viewport: scaledViewport
@@ -301,14 +310,14 @@
 
         // Yakınlaştırma işlemi
         document.getElementById('zoom-in').addEventListener('click', () => {
-            scale += 0.1;
+            scale *= 1.1; // %10 yakınlaştırma
             renderPage(pageNum);
         });
 
         // Uzaklaştırma işlemi
         document.getElementById('zoom-out').addEventListener('click', () => {
             if (scale <= 0.2) return;
-            scale -= 0.1;
+            scale /= 1.1; // %10 uzaklaştırma
             renderPage(pageNum);
         });
 
